@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy7uxayaebjk2"]
+
+[ext_resource type="Texture2D" uid="uid://cade2hdq1bs35" path="res://Mini+Pixel+Pack+3/Mini Pixel Pack 3/Projectiles/Player_charged_beam (16 x 16).png" id="1_o5y2h"]
+[ext_resource type="Script" path="res://enemy_bullet.gd" id="1_stxft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mxtc"]
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_stxft")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o5y2h")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0mxtc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.38419e-07, 1.19209e-07)
+scale = Vector2(0.4, 0.7)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
